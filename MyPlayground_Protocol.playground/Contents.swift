@@ -125,16 +125,54 @@ iphone.makeSound()
 
 //=========================
 
+protocol Bird {
+    
+    var name: String { get }
+    var canFly: Bool { get }
+    
+}
+
+protocol FlyingSpeed {
+    
+    var speedVelocity: Double { get }
+}
+
+struct Penguin: Bird {
+    
+    let name: String
+    let canFly = false
+}
 
 
+let peng = Penguin(name: "Penguin")
+
+peng.name
+
+peng.canFly
 
 
+struct Eagle: Bird, FlyingSpeed {
+    
+    
+    let canFly = true
+   
+    var speedVelocity: Double { return speed * 2}
+   
+    let name: String
 
+    let comment: String
+    
+    let speed: Double
+    
+}
 
+let eagle = Eagle(name: "the Eagles", comment: "Eagles are fast", speed: 100.0)
 
-
-
-
+eagle.canFly
+eagle.comment
+eagle.name
+eagle.speed
+eagle.speedVelocity
 
 
 
